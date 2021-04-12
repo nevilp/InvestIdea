@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<input>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <title>Title</title>
+<label for="categories">Choose a Category:</label>
+<form action="{% url 'getdata'%}">
+
+<select name="category" id="categories">
+    <option selected="selected" disabled>Nifty50</option>
+  <option value="Nifty50">Nifty50</option>
+  <option value="NiftyNext50">NiftyNext50</option>
+  <option value="Nifty100">Nifty100</option>
+  <option value="Nifty200M30">Nifty200M30</option>
+</select>
+    <input  type="submit" value="click">
+    </form>
+
+
+
+    <table class="table table-striped">
+<tr>
+    <th>Ticker</th>
+    <th>Intrinsic Value</th>
+    <th>Market Value</th>
+    <th>Percentage Difference</th>
+</tr>
+    {% for line in data %}
+<tr>
+    <td>{{line.tickerName}}</td>
+    <td>{{line.intrinsicValue}}</td>
+    <td>{{line.marketValue}}</td>
+    <td>{{line.PercentageIncreament}}</td>
+
+    </tr>
+    {% endfor %}
+</table>
+
+</head>
+<body>
+
+</body>
+</html>
