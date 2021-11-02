@@ -44,6 +44,9 @@ def getScrapUrl(category):
             'Nifty50': 'http://www.attainix.com/ICTrackerSummary.aspx?indexcode=NIFTY',
             'NiftyNext50': 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNXLVL',
             'Nifty200M30': 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NF2Q30',
+            'Momentum':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NFTM30',
             'Nifty100': 'http://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNX100',
+            'strongBuy':'https://www.attainix.com/ICTrackerSummary.aspx?actioncode=1.IN',
+            'midcapnifty':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNXMID'
         }
         return switcher.get(category, 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NF2Q30')
