@@ -14,7 +14,7 @@ def index(request):
 
 
 def getData(request):
-    answer='Nifty200M30'
+    answer='Nifty200M30.IN'
     if request.method == 'GET' and 'category' in request.GET:
      answer = request.GET['category']
     FundName = '//tr//td[2]//a'
@@ -41,12 +41,13 @@ def getData(request):
 
 def getScrapUrl(category):
         switcher = {
-            'Nifty50': 'http://www.attainix.com/ICTrackerSummary.aspx?indexcode=NIFTY',
-            'NiftyNext50': 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNXLVL',
-            'Nifty200M30': 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NF2Q30',
-            'Momentum':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NFTM30',
-            'Nifty100': 'http://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNX100',
+            'Nifty50': 'http://www.attainix.com/ICTrackerSummary.aspx?indexcode=NIFTY.IN',
+            'NiftyNext50': 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNXLVL.IN',
+            'Nifty200M30': 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NF2Q30.IN',
+            'Momentum':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NFTM30.IN',
+            'Nifty100': 'http://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNX100.IN',
             'strongBuy':'https://www.attainix.com/ICTrackerSummary.aspx?actioncode=1.IN',
-            'midcapnifty':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNXMID'
+            'midcapnifty':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=CNXMID.IN',
+            'largeMidcap':'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NLM250.IN'
         }
-        return switcher.get(category, 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NF2Q30')
+        return switcher.get(category, 'https://www.attainix.com/ICTrackerSummary.aspx?indexcode=NF2Q30.IN')
