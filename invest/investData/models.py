@@ -7,6 +7,7 @@ class IntrisicData(models.Model):
     intrinsicValue = models.FloatField()
     marketValue = models.FloatField()
     PercentageIncreament = models.FloatField(blank=False,null=True)
+    val_date_price = models.FloatField(blank=False,null=True)
 
     def __str__(self):
         return self.tickerName

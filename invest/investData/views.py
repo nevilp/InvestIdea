@@ -20,6 +20,7 @@ def getData(request):
     FundName = '//tr//td[2]//a'
     intrisicValue = '//tr/td[6]'
     marketPrice = '//tr//td[7]'
+    val_date_price = '//tr//td[5]'
 
     BaseURL = getScrapUrl(answer)
     page = requests.get(BaseURL)
@@ -27,15 +28,18 @@ def getData(request):
     fundNamesElements = tree.xpath(FundName)
     intrinsicValuesElements = tree.xpath(intrisicValue)
     marketPricesElements = tree.xpath(marketPrice)
+    valPricesElements = tree.xpath(val_date_price)
     IntrisicData.objects.all().delete()
     for i in range(len(fundNamesElements)):
         intrisicData = IntrisicData()
         intrisicData.tickerName = fundNamesElements[i].text_content()
         intrisicValuefloat =  float(intrinsicValuesElements[i].text_content().replace(',',''))
+        val_date_price_foat = float(valPricesElements[i].text_content().replace(',',''))
         if intrisicValuefloat>0:
             intrisicData.intrinsicValue = intrisicValuefloat
             marketValuefloat =float(marketPricesElements[i].text_content().replace(',',''))
             intrisicData.marketValue = marketValuefloat
+            intrisicData.val_date_price = val_date_price_foat
             intrisicData.PercentageIncreament= (intrisicValuefloat-marketValuefloat)*100/ ((intrisicValuefloat + marketValuefloat) / 2)
             intrisicData.save()
     return render(request, 'DataPoint.html', {'data': IntrisicData.objects.all().order_by('-PercentageIncreament')})

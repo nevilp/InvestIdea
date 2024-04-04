@@ -28,6 +28,7 @@
     <table class="table table-striped">
 <tr>
     <th>Ticker</th>
+    <th>Old Price @ value </th>
     <th>Intrinsic Value</th>
     <th>Market Value</th>
     <th>Percentage Difference</th>
@@ -35,6 +36,7 @@
     {% for line in data %}
 <tr>
     <td>{{line.tickerName}}</td>
+    <td>{{line.val_date_price}}</td>
     <td>{{line.intrinsicValue}}</td>
     <td>{{line.marketValue}}</td>
     <td>{{line.PercentageIncreament}}</td>
